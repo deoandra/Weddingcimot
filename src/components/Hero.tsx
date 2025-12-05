@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ShinyText } from "./ui/shiny-text";
+import { Particles } from "./ui/particles";
 
 export const Hero = () => {
   return (
@@ -15,6 +16,14 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-neutral-950/80" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(10,10,10,0.8)_100%)]" />
       </div>
+
+      <Particles
+        className="absolute inset-0 z-0"
+        quantity={500}
+        staticity={100}
+        ease={60}
+        color="#fbbf24"
+      />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-5xl mx-auto">
@@ -32,11 +41,9 @@ export const Hero = () => {
         </motion.div>
 
         <div className="mb-10">
-           <ShinyText 
-             text="Dhuha & Nisa" 
-             className="font-[cursive] text-6xl md:text-8xl lg:text-[9rem] font-medium tracking-tight justify-center leading-[1.1]"
-             speed={4}
-           />
+          <h1 className="font-bold font-serif text-6xl md:text-8xl lg:text-[9rem] font-medium tracking-tight justify-center leading-[1.1] text-yellow-100">
+            Dhuha & Nisa
+          </h1>
         </div>
 
         <motion.div
@@ -58,7 +65,9 @@ export const Hero = () => {
         transition={{ delay: 2, duration: 1.5 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-500">Scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+          Scroll
+        </span>
         <div className="h-12 w-px bg-gradient-to-b from-yellow-500/50 to-transparent" />
       </motion.div>
     </section>

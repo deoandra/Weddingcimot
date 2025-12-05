@@ -1,5 +1,4 @@
-import { motion } from "motion/react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import CircularGallery from "./CircularGallery";
 import { BlurText } from "./ui/blur-text";
 
 const images = [
@@ -10,41 +9,25 @@ const images = [
 ];
 
 export const Gallery = () => {
+  const items = images.map((image, i) => ({ image, text: `Moment ${i + 1}` }));
   return (
     <section id="gallery" className="py-24 relative z-10">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <BlurText 
-             text="Our Moments"
-             className="justify-center font-serif text-4xl md:text-5xl text-yellow-100/90 mb-4"
-           />
-           <div className="h-px w-24 bg-yellow-600/30 mx-auto mt-6" />
+        <div className="text-center">
+          <BlurText
+            text="Our Moments"
+            className="justify-center font-serif text-4xl md:text-5xl text-yellow-100/90"
+          />
+          <div className="h-px w-24 bg-yellow-600/30 mx-auto mt-6" />
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <ResponsiveMasonry
-            columnsCountBreakPoints={{350: 1, 750: 2}}
-          >
-            <Masonry gutter="1.5rem">
-              {images.map((image, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.8 }}
-                  className="overflow-hidden rounded-sm group relative"
-                >
-                  <img
-                    src={image}
-                    alt={`Gallery ${i}`}
-                    className="w-full block hover:scale-105 transition-transform duration-700 grayscale-[20%] hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-neutral-900/0 group-hover:bg-yellow-900/10 transition-colors duration-500 pointer-events-none" />
-                </motion.div>
-              ))}
-            </Masonry>
-          </ResponsiveMasonry>
+        <div style={{ height: "800px", position: "relative" }}>
+          <CircularGallery
+            bend={1}
+            textColor="#ffffff"
+            borderRadius={0.05}
+            scrollEase={0.02}
+          />
         </div>
       </div>
     </section>

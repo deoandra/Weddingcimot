@@ -8,14 +8,24 @@ interface ProfileCardProps {
   align?: "left" | "right";
 }
 
-export const ProfileCard = ({ name, role, image, description, align = "left" }: ProfileCardProps) => {
+export const ProfileCard = ({
+  name,
+  role,
+  image,
+  description,
+  align = "left",
+}: ProfileCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className={`flex flex-col ${align === "right" ? "md:items-end md:text-right" : "md:items-start md:text-left"} items-center text-center gap-6 group`}
+      className={`flex flex-col ${
+        align === "right"
+          ? "md:items-end md:text-right"
+          : "md:items-start md:text-left"
+      } items-center text-center gap-6 group`}
     >
       <div className="relative w-72 h-96 overflow-hidden rounded-sm border border-yellow-900/30">
         <div className="absolute inset-0 bg-neutral-900/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
@@ -36,11 +46,17 @@ export const ProfileCard = ({ name, role, image, description, align = "left" }: 
           <span className="text-yellow-600 text-[10px] uppercase tracking-[0.3em] font-bold">
             {role}
           </span>
-          <h3 className="font-serif text-3xl md:text-4xl text-yellow-100">{name}</h3>
+          <h3 className="font-serif text-3xl md:text-4xl text-yellow-100">
+            {name}
+          </h3>
         </div>
-        
-        <div className={`w-12 h-px bg-yellow-800/50 ${align === "right" ? "md:ml-auto" : "md:mr-auto"} mx-auto`} />
-        
+
+        <div
+          className={`w-12 h-px bg-yellow-800/50 ${
+            align === "right" ? "md:ml-auto" : "md:mr-auto"
+          } mx-auto`}
+        />
+
         <div className="text-neutral-400 font-light text-sm leading-relaxed">
           {description}
         </div>

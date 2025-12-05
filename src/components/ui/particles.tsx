@@ -103,10 +103,13 @@ export const Particles = ({
       context.current.translate(translateX, translateY);
       context.current.beginPath();
       context.current.arc(x, y, size, 0, 2 * Math.PI);
-      context.current.fillStyle = `rgba(${parseInt(color.slice(1, 3), 16)}, ${parseInt(
-        color.slice(3, 5),
+      context.current.fillStyle = `rgba(${parseInt(
+        color.slice(1, 3),
         16
-      )}, ${parseInt(color.slice(5, 7), 16)}, ${alpha})`;
+      )}, ${parseInt(color.slice(3, 5), 16)}, ${parseInt(
+        color.slice(5, 7),
+        16
+      )}, ${alpha})`;
       context.current.fill();
       context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
 
